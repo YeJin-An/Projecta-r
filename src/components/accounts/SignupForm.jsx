@@ -1,5 +1,6 @@
 import DebugStates from 'components/DebugStates';
 import { useApiAxios } from 'api/base';
+import { useAuth } from 'contexts/AuthContext';
 import useFieldValues from 'hooks/useFieldValues';
 import { useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
@@ -14,10 +15,9 @@ const INITIAL_FIELD_VALUES = {
 function SignupForm() {
   const navigate = useNavigate();
 
-  const { fieldValues, handleFieldChange } =
-    useFieldValues(INITIAL_FIELD_VALUES);
+  const [auth, _, signup] = useAuth();
 
-  const [{ loading, error, errorMessages }, requestMember] = useApiAxios(
+  const [{ loading, error }, requestToken] = useApiAxios(
     {
       url: '/accounts/api/signup/',
       method: 'POST',
@@ -25,11 +25,25 @@ function SignupForm() {
     { manual: true },
   );
 
+  const { fieldValues, handleFieldChange } =
+    useFieldValues(INITIAL_FIELD_VALUES);
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    requestMember({ data: fieldValues }).then((response) => {
+    requestToken({ data: fieldValues }).then((response) => {
       const { username, password, password2, email } = response.data;
+      signup({
+        username,
+        password,
+        password2,
+        email,
+      });
+
+      console.log('username: ', username);
+      console.log('password: ', password);
+      console.log('password2: ', password2);
+      console.log('email: ', email);
       navigate('/');
     });
   };
@@ -38,7 +52,7 @@ function SignupForm() {
     <div>
       <h2>Signup</h2>
 
-      {error?.response?.status === 40 && (
+      {error?.response?.status === 401 && (
         <div className="text-red-400">회원가입에 실패했습니다.</div>
       )}
 
