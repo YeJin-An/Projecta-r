@@ -1,6 +1,5 @@
 import DebugStates from 'components/DebugStates';
 import { useApiAxios } from 'api/base';
-import { useAuth } from 'contexts/AuthContext';
 import useFieldValues from 'hooks/useFieldValues';
 import { useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
@@ -15,9 +14,10 @@ const INITIAL_FIELD_VALUES = {
 function SignupForm() {
   const navigate = useNavigate();
 
-  const [auth, _, signup] = useAuth();
+  const { fieldValues, handleFieldChange } =
+    useFieldValues(INITIAL_FIELD_VALUES);
 
-  const [{ loading, error }, requestToken] = useApiAxios(
+  const [{ loading, error, errorMessages }, requestToken] = useApiAxios(
     {
       url: '/accounts/api/signup/',
       method: 'POST',
@@ -25,25 +25,12 @@ function SignupForm() {
     { manual: true },
   );
 
-  const { fieldValues, handleFieldChange } =
-    useFieldValues(INITIAL_FIELD_VALUES);
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
     requestToken({ data: fieldValues }).then((response) => {
       const { username, password, password2, email } = response.data;
-      signup({
-        username,
-        password,
-        password2,
-        email,
-      });
 
-      console.log('username: ', username);
-      console.log('password: ', password);
-      console.log('password2: ', password2);
-      console.log('email: ', email);
       navigate('/');
     });
   };
@@ -51,10 +38,6 @@ function SignupForm() {
   return (
     <div>
       <h2>Signup</h2>
-
-      {error?.response?.status === 401 && (
-        <div className="text-red-400">회원가입에 실패했습니다.</div>
-      )}
 
       <form onSubmit={handleSubmit}>
         <div className="my-3">
@@ -79,7 +62,7 @@ function SignupForm() {
         </div>
         <div className="my-3">
           <input
-            type="password2"
+            type="password"
             name="password2"
             value={fieldValues.password2}
             onChange={handleFieldChange}
@@ -109,7 +92,7 @@ function SignupForm() {
         </div>
         <div className="my-3">
           <input
-            type=""
+            type="text"
             name="phoneNumber"
             value={fieldValues.phonenumber}
             onChange={handleFieldChange}
@@ -121,7 +104,11 @@ function SignupForm() {
         <Button>취소</Button>
       </form>
 
-      <DebugStates fieldValues={fieldValues} />
+      <DebugStates
+        fieldValues={fieldValues}
+        error={error}
+        errorMessages={errorMessages}
+      />
     </div>
   );
 }
