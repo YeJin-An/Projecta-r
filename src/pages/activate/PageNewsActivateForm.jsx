@@ -8,7 +8,7 @@ function PageNewsActivateForm() {
 
   return (
     <ActivateForm
-      activateId={activateId}
+      activateid={activateId}
       handleDidSave={(savedActivate) =>
         navigate(`/activate/${savedActivate.id}/`)
       }

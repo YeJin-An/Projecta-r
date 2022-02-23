@@ -6,7 +6,7 @@ function PageNewsActivateDetail() {
 
   return (
     <div>
-      <h2>타노 중립 릴레이 현황#{activateId} 보여주기</h2>
+      <h2>탄소 중립 릴레이 현황#{activateId} 보여주기</h2>
       <ActivateDetail activateId={activateId} />
     </div>
   );

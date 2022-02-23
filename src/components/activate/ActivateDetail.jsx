@@ -21,7 +21,7 @@ function ActivateDetail({ activateId }) {
     { manual: true },
   );
 
-  const [{ loading: deleteLoading, error: deleteError }, deleteArticle] =
+  const [{ loading: deleteLoading, error: deleteError }, deleteActivate] =
     useApiAxios(
       {
         url: `/activate/api/activates/${activateId}/`,
@@ -36,7 +36,7 @@ function ActivateDetail({ activateId }) {
   const handleDelete = () => {
     if (window.confirm('Are you sure?')) {
       // REST API 에서는 DELETE 요청에 대한 응답이 없습니다.
-      deleteArticle().then(() => {
+      deleteActivate().then(() => {
         navigate('/activate/');
       });
     }
