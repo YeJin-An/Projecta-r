@@ -12,7 +12,7 @@ function ActivateDetail({ activateId }) {
 
   const [{ data: activate, loading, error }, refetch] = useApiAxios(
     {
-      url: `/activate/api/activate/${activateId}/`,
+      url: `/activate/api/activates/${activateId}/`,
       method: 'GET',
       headers: {
         Authorization: `Bearer ${auth.access}`,
@@ -61,7 +61,7 @@ function ActivateDetail({ activateId }) {
 
           {activate.photo && (
             <img
-              src={activate.image}
+              src={activate.photo}
               alt={activate.title}
               className="rounded"
             />
@@ -78,20 +78,20 @@ function ActivateDetail({ activateId }) {
       <hr className="my-3" />
       <div className="flex gap-4 mt-3 mb-10">
         <Link to="/activate/" className="hover:text-red-400">
-          목록으로
+          목록
         </Link>
         <Link
           to={`/activate/${activateId}/edit/`}
           className="hover:text-red-400"
         >
-          수정하기
+          수정
         </Link>
         <button
           disabled={deleteLoading}
           onClick={handleDelete}
           className="hover:text-red-400"
         >
-          삭제하기
+          삭제
         </button>
       </div>
     </div>

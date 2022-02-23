@@ -9,7 +9,7 @@ function ActivateSummary({ activate }) {
       <div className="p-8 sm:p-9 md:p-7 xl:p-9">
         <h3>
           <Link
-            to={`/news/${activate.id}/`}
+            to={`/activate/${activate.id}/`}
             className="font-semibold text-dark"
           >
             {activate.title}

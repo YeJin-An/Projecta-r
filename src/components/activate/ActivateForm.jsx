@@ -41,8 +41,8 @@ function ActivateForm({ activateId, handleDidSave }) {
   ] = useApiAxios(
     {
       url: !activateId
-        ? '/activate/api/artivates/'
-        : `/news/api/articles/${activateId}/`,
+        ? '/activate/api/activates/'
+        : `/activate/api/activates/${activateId}/`,
       method: !activateId ? 'POST' : 'PUT',
       headers: {
         Authorization: `Bearer ${auth.access}`,
@@ -68,7 +68,7 @@ function ActivateForm({ activateId, handleDidSave }) {
     // 함수(원본) => 변경된 사본을 리턴;
     setFieldValues(
       produce((draft) => {
-        draft.image = '';
+        draft.photo = '';
       }),
     );
 
@@ -139,6 +139,15 @@ function ActivateForm({ activateId, handleDidSave }) {
             </p>
           ))}
         </div>
+        <div className="my-3">
+          <select name="category" onChange={handleFieldChange}>
+            <option value="1">대중교통 이용</option>
+            <option value="2">장바구니 사용</option>
+            <option value="3">스마트 영수증</option>
+            <option value="4">텀블러 사용</option>
+            <option value="5">올바른 분리배출</option>
+          </select>
+        </div>
 
         <div className="my-3">
           <textarea
@@ -162,7 +171,7 @@ function ActivateForm({ activateId, handleDidSave }) {
             // value=""
             onChange={handleFieldChange}
           />
-          {saveErrorMessages.image?.map((message, index) => (
+          {saveErrorMessages.photo?.map((message, index) => (
             <p key={index} className="text-xs text-red-400">
               {message}
             </p>

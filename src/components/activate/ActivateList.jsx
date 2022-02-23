@@ -41,12 +41,16 @@ function ActivateList() {
               key={activate.id}
               className="w-full md:w-1/2 xl:w-1/3 px-4 transition-transform hover:-translate-y-5 duration-300"
             >
-              <ActivateSummary article={activate} />
+              <ActivateSummary activate={activate} />
             </div>
           ))}
         </div>
       )}
-      <DebugStates articleList={activateList} loading={loading} error={error} />
+      <DebugStates
+        activateList={activateList}
+        loading={loading}
+        error={error}
+      />
     </div>
   );
 }
