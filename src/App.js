@@ -29,11 +29,11 @@ function App() {
         <Route path="/activate/" element={<PageActivateIndex />} />
         <Route path="/activate/new/" element={<PageNewsActivateForm />} />
         <Route
-          path="/activate/:articleId/"
+          path="/activate/:activateId/"
           element={<PageNewsActivateDetail />}
         />
         <Route
-          path="/news/:articleId/edit/"
+          path="/activate/:activateid/edit/"
           element={<PageNewsActivateForm />}
         />
       </Routes>
