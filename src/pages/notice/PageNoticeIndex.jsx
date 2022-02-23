@@ -1,6 +1,7 @@
 import NoticeList from 'components/notice/NoticeList';
 import { Link } from 'react-router-dom';
 import image01 from 'icon/image01.png';
+import Pagination from 'react-js-pagination';
 
 function PageNoticeIndex() {
   return (
@@ -12,6 +13,11 @@ function PageNoticeIndex() {
         <NoticeList />
       </div>
       <hr className="my-5" />
+      <Pagination
+        pageRangeDisplayed={5}
+        prevPageText={'<'}
+        nextPageText={'>'}
+      ></Pagination>
       <div className="flex gap-4">
         <Link to="/notice/new/">글쓰기</Link>
       </div>

@@ -8,7 +8,7 @@ function NoticeDetail({ id }) {
   const handlePostDelete = () => {
     if (window.confirm('Are you sure?')) {
       request('DELETE').then(() => {
-        navigate('/blog/');
+        navigate('/notice/');
       });
     }
   };
