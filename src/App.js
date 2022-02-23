@@ -7,7 +7,7 @@ import PageNoticeIndex from 'pages/notice/PageNoticeIndex';
 import PageLogin from 'pages/accounts/PageLogin';
 import PageNewsActivateDetail from 'pages/activate/PageNewsActivateDetail';
 import PageNewsActivateForm from 'pages/activate/PageNewsActivateForm';
-import PageNewsIndex from 'pages/activate/PageNewsIndex';
+import PageActivateIndex from 'pages/activate/PageActivateIndex';
 import PageProfile from 'pages/accounts/PageProfile';
 import Navgation from 'components/Navgation';
 import PageSignup from 'pages/accounts/PageSignup';
@@ -26,7 +26,7 @@ function App() {
         <Route path="/notice/new/" element={<PageNoticeForm />} />
         <Route path="/notice/:noticeId/" element={<PageNoticeDetail />} />
         <Route path="/notice/:noticeId/edit/" element={<PageNoticeForm />} />
-        <Route path="/activate/" element={<PageNewsIndex />} />
+        <Route path="/activate/" element={<PageActivateIndex />} />
         <Route path="/activate/new/" element={<PageNewsActivateForm />} />
         <Route
           path="/activate/:articleId/"

@@ -4,7 +4,7 @@ import Button from 'components/Button';
 import ActivateList from 'components/activate/ActivateList';
 import { useNavigate } from 'react-router-dom';
 
-function PageNewsIndex() {
+function PageActivateIndex() {
   const navigate = useNavigate();
 
   return (
@@ -17,4 +17,4 @@ function PageNewsIndex() {
   );
 }
 
-export default PageNewsIndex;
+export default PageActivateIndex;
