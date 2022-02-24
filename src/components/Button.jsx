@@ -12,7 +12,7 @@ function Button({ type, children, onClick }) {
   return (
     <button
       onClick={onClick}
-      className={`${COLORS[type]} font-bold py-2 px-4 rounded mb-2 ml-2`}
+      className={`${COLORS[type]} font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2`}
     >
       {children}
     </button>

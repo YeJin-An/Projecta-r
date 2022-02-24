@@ -1,7 +1,7 @@
 import DebugStates from 'components/DebugStates';
 import { useApiAxios } from 'api/base';
 import useFieldValues from 'hooks/useFieldValues';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from 'components/Button';
 
 const INITIAL_FIELD_VALUES = {
@@ -100,8 +100,11 @@ function SignupForm() {
             className="p-3 bg-gray-100 focus:outline-none focus:border focus:border-gray-400 w-full"
           />
         </div>
-        <Button>회원가입</Button>
-        <Button>취소</Button>
+
+        <div className="flex items-center justify-end">
+          <Button>회원가입</Button>
+          <Button>취소</Button>
+        </div>
       </form>
 
       <DebugStates

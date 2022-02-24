@@ -41,7 +41,9 @@ function MyLink({ to, children }) {
     <NavLink
       to={to}
       className={({ isActive }) =>
-        baseClassName + ' ' + (isActive ? 'border-b-4 border-red-400' : '')
+        baseClassName +
+        ' ' +
+        (isActive ? 'underline decoration-gray-500 border-blue-400' : '')
       }
     >
       {children}
@@ -50,6 +52,6 @@ function MyLink({ to, children }) {
 }
 
 const baseClassName =
-  'px-4 pt-3 pb-2 font-semibold hover:bg-yellow-200 hover:text-blank-500 hover:text-white';
+  'px-4 pt-3 pb-2 font-semibold hover:bg-gray-200 hover:text-blank-500 ';
 
 export default Navgation;

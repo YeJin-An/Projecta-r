@@ -147,7 +147,7 @@ function ActivateForm({ activateId, handleDidSave }) {
           ))}
         </div>
 
-        <div className="my-3">
+        <div className="flex items-center justify-end">
           <Button>저장하기</Button>
         </div>
       </form>

@@ -77,7 +77,9 @@ function LoginForm() {
             className="p-3 bg-gray-100 focus:outline-none focus:border focus:border-gray-400 w-full"
           />
         </div>
-        <Button>로그인</Button>
+        <div className="flex items-center justify-end">
+          <Button>로그인</Button>
+        </div>
       </form>
 
       <DebugStates auth={auth} fieldValues={fieldValues} />

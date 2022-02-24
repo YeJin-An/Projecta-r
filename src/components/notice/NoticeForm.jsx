@@ -96,9 +96,12 @@ function NoticeForm({ noticeId, handleSuccess }) {
           <ErrorMessages errorMessages={postErrorMessages.author} />
         </div>
 
-        <div className="flex items-center justify-between">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+        <div className="flex items-center justify-end">
+          <button className="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">
             저장
+          </button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">
+            취소
           </button>
         </div>
       </form>
