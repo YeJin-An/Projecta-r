@@ -1,6 +1,7 @@
 import { useNotice, useNoticeList } from 'api/notice';
 import useFieldValues from 'hooks/useFieldValues';
 import { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 const INITIAL_FIELD_VALUES = {
   title: '',
@@ -101,7 +102,7 @@ function NoticeForm({ noticeId, handleSuccess }) {
             저장
           </button>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">
-            취소
+            <Link to="/notice">취소</Link>
           </button>
         </div>
       </form>

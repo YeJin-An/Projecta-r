@@ -7,6 +7,7 @@ import { useApiAxios } from 'api/base';
 import { useAuth } from 'contexts/AuthContext';
 import { useEffect } from 'react';
 import useFieldValues from 'hooks/useFieldValues';
+import { Link } from 'react-router-dom';
 
 const INIT_FIELD_VALUES = { title: '', content: '' };
 
@@ -148,7 +149,10 @@ function ActivateForm({ activateId, handleDidSave }) {
         </div>
 
         <div className="flex items-center justify-end">
-          <Button>저장하기</Button>
+          <Button>저장</Button>
+          <Button>
+            <Link to="/activate/">취소</Link>
+          </Button>
         </div>
       </form>
       <DebugStates
