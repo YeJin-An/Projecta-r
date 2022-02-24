@@ -46,22 +46,15 @@ function NoticeDetail({ id }) {
 
       <hr className="my-5" />
 
-      <div className="flex gap-4">
-        {notice && (
-          <button
-            className="hover:text-red-600 cursor-pointer"
-            onClick={handlePostDelete}
-          >
-            삭제
-          </button>
-        )}
+      
+       <div className="flex items-center justify-end">
         {notice && (
           <Link to={`/notice/${id}/edit/`} className="hover:text-red-600">
-            수정
+              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">수정</button>
           </Link>
         )}
         <Link to="/notice/" className="hover:text-red-600">
-          목록
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">목록</button>
         </Link>
       </div>
     </div>
