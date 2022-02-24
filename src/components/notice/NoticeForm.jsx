@@ -13,13 +13,13 @@ function NoticeForm({ noticeId, handleSuccess }) {
 
   // 생성(postId==undefined)에서는 post는 null
   const {
-    notice,
+    post,
     errorMessages: putErrorMessages,
     request: putRequest,
   } = useNotice(noticeId, !!noticeId);
 
   const { fieldValues, handleFieldChange } = useFieldValues(
-    notice || INITIAL_FIELD_VALUES,
+    post || INITIAL_FIELD_VALUES,
   );
 
   const handleSubmit = useCallback(
@@ -27,8 +27,8 @@ function NoticeForm({ noticeId, handleSuccess }) {
       e.preventDefault();
       if (!noticeId) {
         postRequest('POST', fieldValues).then((response) => {
-          const notice = response?.data;
-          if (handleSuccess) handleSuccess(notice);
+          const post = response?.data;
+          if (handleSuccess) handleSuccess(post);
         });
       } else {
         putRequest('PUT', fieldValues).then((response) => {
@@ -73,7 +73,7 @@ function NoticeForm({ noticeId, handleSuccess }) {
         <div className="mb-4">
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
+            type=""
             placeholder="YYYY-MM-DD 이형식을 지키시오"
             name="created_at"
             value={fieldValues.created_at}

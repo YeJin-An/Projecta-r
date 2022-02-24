@@ -27,7 +27,7 @@ function NoticeDetail({ id }) {
           <h2 className="text-3xl mt-10 mb-5">{notice.title}</h2>
 
           <img
-            src="https://placeimg.com/640/480/tech"
+            src="https://placeimg.com/640/480/people"
             alt=""
             className="rounded w-64 float-left mr-5 mb-2"
           />

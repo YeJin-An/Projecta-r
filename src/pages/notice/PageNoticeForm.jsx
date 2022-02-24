@@ -11,7 +11,7 @@ function PageNoticeForm() {
         공지사항 {!noticeId ? '쓰기' : '수정'}
       </h2>
       <NoticeForm
-        postId={noticeId}
+        noticeId={noticeId}
         handleSuccess={(notice) => navigate(`/notice/${notice.id}/`)}
       />
     </div>

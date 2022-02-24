@@ -101,21 +101,7 @@ function ActivateForm({ activateId, handleDidSave }) {
         `저장 중 에러가 발생했습니다. (${saveError.response?.status} ${saveError.response?.statusText})`}
 
       <form onSubmit={handleSubmit}>
-        <div className="my-3">
-          <input
-            name="title"
-            value={fieldValues.title}
-            onChange={handleFieldChange}
-            type="text"
-            className="p-1 bg-gray-100 w-full outline-none focus:border focus:border-gray-400 focus:border-dashed"
-          />
-          {saveErrorMessages.title?.map((message, index) => (
-            <p key={index} className="text-xs text-red-400">
-              {message}
-            </p>
-          ))}
-        </div>
-        <div className="my-3">
+        <div className="my-3 ml-3">
           <select name="category" onChange={handleFieldChange}>
             <option value="1">대중교통 이용</option>
             <option value="2">장바구니 사용</option>
@@ -123,6 +109,19 @@ function ActivateForm({ activateId, handleDidSave }) {
             <option value="4">텀블러 사용</option>
             <option value="5">올바른 분리배출</option>
           </select>
+
+          <input
+            name="title"
+            value={fieldValues.title}
+            onChange={handleFieldChange}
+            type="text"
+            className="p-1 ml-3 bg-gray-100 w-3/4 outline-none focus:border focus:border-gray-400 focus:border-dashed"
+          />
+          {saveErrorMessages.title?.map((message, index) => (
+            <p key={index} className="text-xs text-red-400">
+              {message}
+            </p>
+          ))}
         </div>
 
         <div className="my-3">
