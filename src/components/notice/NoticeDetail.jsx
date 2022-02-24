@@ -44,17 +44,20 @@ function NoticeDetail({ id }) {
         </>
       )}
 
-      <hr className="my-5" />
+      <hr className="text-blank-400 border-b-2 border-300" />
 
-      
-       <div className="flex items-center justify-end">
+      <div className="flex items-center justify-end">
         {notice && (
           <Link to={`/notice/${id}/edit/`} className="hover:text-red-600">
-              <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">수정</button>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">
+              수정
+            </button>
           </Link>
         )}
         <Link to="/notice/" className="hover:text-red-600">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">목록</button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">
+            목록
+          </button>
         </Link>
       </div>
     </div>
