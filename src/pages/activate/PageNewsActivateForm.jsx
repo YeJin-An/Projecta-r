@@ -5,10 +5,11 @@ function PageNewsActivateForm() {
   const navigate = useNavigate();
 
   const { activateId } = useParams();
+  console.log(activateId);
 
   return (
     <ActivateForm
-      activateid={activateId}
+      activateId={activateId}
       handleDidSave={(savedActivate) =>
         navigate(`/activate/${savedActivate.id}/`)
       }

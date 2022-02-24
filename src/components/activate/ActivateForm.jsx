@@ -61,12 +61,6 @@ function ActivateForm({ activateId, handleDidSave }) {
         draft.photo = '';
       }),
     );
-
-    setFieldValues(
-      produce((draft) => {
-        draft.photo = '';
-      }),
-    );
   }, [activate]);
 
   const handleSubmit = (e) => {

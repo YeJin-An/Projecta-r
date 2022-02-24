@@ -33,7 +33,7 @@ function App() {
           element={<PageNewsActivateDetail />}
         />
         <Route
-          path="/activate/:activateid/edit/"
+          path="/activate/:activateId/edit/"
           element={<PageNewsActivateForm />}
         />
       </Routes>

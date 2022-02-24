@@ -4,6 +4,7 @@ import NoticeForm from 'components/notice/NoticeForm';
 function PageNoticeForm() {
   const { noticeId } = useParams();
   const navigate = useNavigate();
+  console.log(noticeId);
 
   return (
     <div>
