@@ -51,7 +51,7 @@ function NoticeForm({ noticeId, handleSuccess }) {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
-            placeholder="제목을 입력해주세요."
+            placeholder="제목을 입력해주세요"
             name="title"
             value={fieldValues.title}
             onChange={handleFieldChange}
@@ -62,7 +62,9 @@ function NoticeForm({ noticeId, handleSuccess }) {
 
         <div className="mb-4">
           <textarea
+            type="text"
             name="content"
+            placeholder="내용을 입력해주세요."
             value={fieldValues.content}
             onChange={handleFieldChange}
             className="shadow appearance-none border rounded w-full h-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -75,7 +77,7 @@ function NoticeForm({ noticeId, handleSuccess }) {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type=""
-            placeholder="YYYY-MM-DD 이형식을 지키시오"
+            placeholder="YYYY-MM-DD"
             name="created_at"
             value={fieldValues.created_at}
             onChange={handleFieldChange}
@@ -88,7 +90,7 @@ function NoticeForm({ noticeId, handleSuccess }) {
           <input
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             type="text"
-            placeholder="pk값을 입력하시요."
+            placeholder="pk값을 입력"
             name="author"
             value={fieldValues.author}
             onChange={handleFieldChange}
