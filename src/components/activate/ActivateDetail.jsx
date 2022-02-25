@@ -81,13 +81,22 @@ function ActivateDetail({ activateId }) {
           to={`/activate/${activateId}/edit/`}
           className="hover:text-red-400"
         >
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">수정</button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">
+            수정
+          </button>
         </Link>
         <Link to="/activate/" className="hover:text-red-400">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">목록</button>
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">
+            목록
+          </button>
         </Link>
-
-       
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2"
+          disabled={deleteLoading}
+          onClick={handleDelete}
+        >
+          삭제
+        </button>
       </div>
     </div>
   );

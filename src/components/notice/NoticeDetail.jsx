@@ -5,7 +5,7 @@ function NoticeDetail({ id }) {
   const navigate = useNavigate();
   const { notice, loading, error, request } = useNotice(id);
 
-  const handlePostDelete = () => {
+  const handleNoticeDelete = () => {
     if (window.confirm('Are you sure?')) {
       request('DELETE').then(() => {
         navigate('/notice/');
@@ -59,6 +59,14 @@ function NoticeDetail({ id }) {
             목록
           </button>
         </Link>
+        {notice && (
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2"
+            onClick={handleNoticeDelete}
+          >
+            삭제
+          </button>
+        )}
       </div>
     </div>
   );
