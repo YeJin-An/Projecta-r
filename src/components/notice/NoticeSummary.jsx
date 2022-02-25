@@ -4,14 +4,20 @@ function NoticeSummary({ notice }) {
   return (
     <>
       <div className="flex place-content-around gap-4 break-normal">
-        <Link to={`/notice/${notice.id}/`}>{notice.id}</Link>
+        <Link className="ml-3" to={`/notice/${notice.id}/`}>
+          {notice.id}
+        </Link>
 
-        <div className="text-ellipsis overflow-hidden">
+        <div className="mr-3  text-ellipsis overflow-hidden">
           <Link to={`/notice/${notice.id}/`}>{notice.title}</Link>
         </div>
 
-        <Link to={`/notice/${notice.id}/`}>{notice.author}</Link>
-        <Link to={`/notice/${notice.id}/`}>{notice.created_at}</Link>
+        <Link className="mr-3" to={`/notice/${notice.id}/`}>
+          {notice.author}
+        </Link>
+        <Link className="mr-1" to={`/notice/${notice.id}/`}>
+          {notice.created_at}
+        </Link>
       </div>
 
       <hr className="text-blank-400 border-b-2 border-300 mb-1 mt-1" />
