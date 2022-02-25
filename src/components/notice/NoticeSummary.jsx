@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function NoticeSummary({ notice }) {
+function NoticeSummary({ notice, author }) {
   return (
     <>
       <div className="flex place-content-around gap-4 break-normal">
@@ -13,7 +13,7 @@ function NoticeSummary({ notice }) {
         </div>
 
         <Link className="mr-3" to={`/notice/${notice.id}/`}>
-          {notice.author}
+          <div>{notice.author.username}</div>
         </Link>
         <Link className="mr-1" to={`/notice/${notice.id}/`}>
           {notice.created_at}
