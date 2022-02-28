@@ -4,6 +4,7 @@ import { useAuth } from 'contexts/AuthContext';
 import { useEffect } from 'react';
 import { useApiAxios } from 'api/base';
 import DebugStates from 'components/DebugStates';
+import Pagination from 'rc-pagination';
 
 function NoticeList() {
   const { noticeList } = useNoticeList();
@@ -12,7 +13,7 @@ function NoticeList() {
   const [{ data: usenoticeList, loading, error }, refetch] = useApiAxios(
     {
       url: 'notice/api/notices/',
-      method: 'GET',
+      method: '',
       headers: {
         Authorization: `Bearer ${auth.access}`,
       },
@@ -29,7 +30,7 @@ function NoticeList() {
       {loading && '로딩 중 ...'}
       {error && '로딩 중 에러가 발생했습니다.'}
       {noticeList && (
-        <div className="">
+        <div>
           {noticeList.map((notice) => (
             <div key={notice.id}>
               <NoticeSummary notice={notice} />
@@ -37,6 +38,7 @@ function NoticeList() {
           ))}
         </div>
       )}
+      <Pagination className="m-4 flex items-center justify-center" />
       <DebugStates
         usenoticeList={usenoticeList}
         loading={loading}
