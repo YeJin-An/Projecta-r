@@ -86,19 +86,6 @@ function NoticeForm({ noticeId, handleSuccess }) {
           <ErrorMessages errorMessages={postErrorMessages.created_at} />
         </div>
 
-        <div className="mb-4">
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            placeholder="pk값을 입력"
-            name="author"
-            value={fieldValues.author}
-            onChange={handleFieldChange}
-          />
-          <ErrorMessages errorMessages={putErrorMessages.author} />
-          <ErrorMessages errorMessages={postErrorMessages.author} />
-        </div>
-
         <div className="flex items-center justify-end">
           <button className="mr-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded focus:outline-none focus:shadow-outline">
             저장

@@ -13,7 +13,7 @@ function NoticeSummary({ notice, author }) {
         </div>
 
         <Link className="mr-3" to={`/notice/${notice.id}/`}>
-          <div>{notice.author}</div>
+          <div>{notice.author.username}</div>
         </Link>
         <Link className="mr-3" to={`/notice/${notice.id}/`}>
           {notice.created_at}
