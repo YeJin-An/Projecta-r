@@ -2,6 +2,7 @@ import { useNotice, useNoticeList } from 'api/notice';
 import useFieldValues from 'hooks/useFieldValues';
 import { useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from 'contexts/AuthContext';
 
 const INITIAL_FIELD_VALUES = {
   title: '',
@@ -9,6 +10,8 @@ const INITIAL_FIELD_VALUES = {
 };
 
 function NoticeForm({ noticeId, handleSuccess }) {
+  const [auth] = useAuth();
+
   const { request: postRequest, errorMessages: postErrorMessages } =
     useNoticeList(false);
 
@@ -33,8 +36,8 @@ function NoticeForm({ noticeId, handleSuccess }) {
         });
       } else {
         putRequest('PUT', fieldValues).then((response) => {
-          const notice = response?.data;
-          if (handleSuccess) handleSuccess(notice);
+          const post = response?.data;
+          if (handleSuccess) handleSuccess(post);
         });
       }
     },

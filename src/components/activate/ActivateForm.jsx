@@ -148,6 +148,7 @@ function ActivateForm({ activateId, handleDidSave }) {
           ))}
         </div>
 
+        <hr className="text-blank-400 border-b-2 border-300 mt-1" />
         <div className="flex items-center justify-end">
           <Button>저장</Button>
           <Button>
@@ -155,13 +156,6 @@ function ActivateForm({ activateId, handleDidSave }) {
           </Button>
         </div>
       </form>
-      <DebugStates
-        activate={activate}
-        getLoading={getLoading}
-        getError={getError}
-        saveErrorMessages={saveErrorMessages}
-        fieldValues={fieldValues}
-      />
     </div>
   );
 }

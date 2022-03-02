@@ -106,12 +106,6 @@ function SignupForm() {
           <Button>취소</Button>
         </div>
       </form>
-
-      <DebugStates
-        fieldValues={fieldValues}
-        error={error}
-        errorMessages={errorMessages}
-      />
     </div>
   );
 }

@@ -39,11 +39,6 @@ function NoticeList() {
         </div>
       )}
       <Pagination className="m-4 flex items-center justify-center" />
-      <DebugStates
-        usenoticeList={usenoticeList}
-        loading={loading}
-        error={error}
-      />
     </div>
   );
 }

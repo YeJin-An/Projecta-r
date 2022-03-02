@@ -2,20 +2,17 @@ import { Link } from 'react-router-dom';
 
 function ActivateSummary({ activate }) {
   return (
-    <div className="bg-gray-100 border-gray-100 border-2 rounded-lg overflow-hidden mb-10">
+    <div className="bg-violet-100 Sborder rounded mb-3">
       {activate.photo && (
         <img src={activate.photo} alt={activate.title} className="w-full" />
       )}
-      <div className="p-8 sm:p-9 md:p-7 xl:p-9">
+      <div className="p-8 sm:p-7 md:p-4 xl:p-7">
         <h3>
-          <Link
-            to={`/activate/${activate.id}/`}
-            className="font-semibold text-dark"
-          >
+          <Link to={`/activate/${activate.id}/`} l className="font-semibold">
             {activate.title}
           </Link>
         </h3>
-        <p>by {activate.author.username}</p>
+        <p className="font-light">by {activate.author.username}</p>
       </div>
     </div>
   );
