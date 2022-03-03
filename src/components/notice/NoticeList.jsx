@@ -1,21 +1,19 @@
-import { useNoticeList } from 'api/notice';
+import { useApiAxios } from 'api/base';
 import NoticeSummary from './NoticeSummary';
 import { useAuth } from 'contexts/AuthContext';
 import { useEffect } from 'react';
-import { useApiAxios } from 'api/base';
 import DebugStates from 'components/DebugStates';
 import Pagination from 'rc-pagination';
 
 function NoticeList() {
-  const { noticeList } = useNoticeList();
   const [auth] = useAuth();
 
-  const [{ data: usenoticeList, loading, error }, refetch] = useApiAxios(
+  const [{ data: noticeList, loading, error }, refetch] = useApiAxios(
     {
       url: 'notice/api/notices/',
-      method: '',
+      method: 'GET',
       headers: {
-        Authorization: `Bearer ${auth.access}`,
+        Authorization: `Bearer${auth.access}`,
       },
     },
     { manual: true },

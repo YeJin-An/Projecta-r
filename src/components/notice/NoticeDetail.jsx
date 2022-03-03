@@ -1,17 +1,50 @@
-import { useNotice } from 'api/notice';
+import { useApiAxios } from 'api/base';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from 'contexts/AuthContext';
+import { useEffect } from 'react';
 
-function NoticeDetail({ id }) {
+function NoticeDetail({ noticeId }) {
+  const [auth] = useAuth();
   const navigate = useNavigate();
-  const { notice, loading, error, request } = useNotice(id);
+  const {
+    data: notice,
+    loading,
+    error,
+    refetch,
+  } = useApiAxios(
+    {
+      url: `notice/api/notices/${noticeId}/`,
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${auth.access}`,
+      },
+    },
+    { manual: true },
+  );
 
-  const handleNoticeDelete = () => {
+  const [{ loading: deleteLoading, error: deleteError }, deleteNotice] =
+    useApiAxios(
+      {
+        url: `/notice/api/notices/${noticeId}/`,
+        method: 'DELETE',
+        headers: {
+          Authorization: `Bearer ${auth.access}`,
+        },
+      },
+      { manual: true },
+    );
+
+  const handleDelete = () => {
     if (window.confirm('Are you sure?')) {
-      request('DELETE').then(() => {
+      deleteNotice().then(() => {
         navigate('/notice/');
       });
     }
   };
+
+  useEffect(() => {
+    refetch();
+  }, []);
 
   if (loading) return <p>Loading ...</p>;
 
@@ -48,7 +81,7 @@ function NoticeDetail({ id }) {
 
       <div className="flex items-center justify-end">
         {notice && (
-          <Link to={`/notice/${id}/edit/`} className="hover:text-red-600">
+          <Link to={`/notice/${noticeId}/edit/`} className="hover:text-red-600">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2">
               수정
             </button>
@@ -62,7 +95,7 @@ function NoticeDetail({ id }) {
         {notice && (
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 mr-1 rounded mb-1 ml-2 mt-2"
-            onClick={handleNoticeDelete}
+            onClick={handleDelete}
           >
             삭제
           </button>
