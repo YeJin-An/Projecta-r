@@ -39,18 +39,14 @@ function ActivateList() {
           {activateList.map((activate) => (
             <div
               key={activate.id}
-              className="w-full md:w-1/2 xl:w-1/3 px-4 transition-transform hover:-translate-y-5 duration-300"
+              className=" md:w-5/6 xl:w-1/3 px-4 
+              transition-transform hover:-translate-y-5 duration-300"
             >
               <ActivateSummary activate={activate} />
             </div>
           ))}
         </div>
       )}
-      <DebugStates
-        activateList={activateList}
-        loading={loading}
-        error={error}
-      />
     </div>
   );
 }

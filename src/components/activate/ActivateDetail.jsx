@@ -75,7 +75,7 @@ function ActivateDetail({ activateId }) {
           </div>
         </>
       )}
-      <hr className="my-3" />
+      <hr className="text-blank-400 border-b-2 border-300 mt-1" />
       <div className="flex items-center justify-end">
         <Link
           to={`/activate/${activateId}/edit/`}

@@ -81,8 +81,6 @@ function LoginForm() {
           <Button>로그인</Button>
         </div>
       </form>
-
-      <DebugStates auth={auth} fieldValues={fieldValues} />
     </div>
   );
 }

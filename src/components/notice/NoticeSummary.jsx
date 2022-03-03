@@ -1,27 +1,27 @@
 import { Link } from 'react-router-dom';
 
-function NoticeSummary({ notice }) {
+function NoticeSummary({ notice, author }) {
   return (
-    <>
+    <div>
       <div className="flex place-content-around gap-4 break-normal">
-        <Link className="ml-3" to={`/notice/${notice.id}/`}>
+        <Link className="ml-5" to={`/notice/${notice.id}/`}>
           {notice.id}
         </Link>
 
-        <div className="mr-3  text-ellipsis overflow-hidden">
+        <div className="mr-3 text-ellipsis overflow-hidden">
           <Link to={`/notice/${notice.id}/`}>{notice.title}</Link>
         </div>
 
         <Link className="mr-3" to={`/notice/${notice.id}/`}>
-          {notice.author}
+          <div>{notice.author.username}</div>
         </Link>
-        <Link className="mr-1" to={`/notice/${notice.id}/`}>
+        <Link className="mr-3" to={`/notice/${notice.id}/`}>
           {notice.created_at}
         </Link>
       </div>
 
       <hr className="text-blank-400 border-b-2 border-300 mb-1 mt-1" />
-    </>
+    </div>
   );
 }
 
